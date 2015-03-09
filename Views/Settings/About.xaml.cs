@@ -1,6 +1,7 @@
 ﻿using System.Windows.Controls;
+using System.Windows.Media;
 
-namespace CS_Demo_Manager.Pages.Settings
+namespace CS_Demo_Manager.Views.Settings
 {
 	/// <summary>
 	/// Interaction logic for About.xaml
@@ -10,6 +11,11 @@ namespace CS_Demo_Manager.Pages.Settings
 		public About()
 		{
 			InitializeComponent();
+
+			if (!System.ComponentModel.DesignerProperties.GetIsInDesignMode(this))
+			{
+				Background = Brushes.Transparent;
+			}
 		}
 	}
 }

@@ -2,14 +2,14 @@
 using System.Linq;
 using System.Windows.Media;
 using FirstFloor.ModernUI.Presentation;
+using GalaSoft.MvvmLight;
 
-namespace CS_Demo_Manager.Pages.Settings
+namespace CS_Demo_Manager.ViewModels.Settings
 {
 	/// <summary>
 	/// A simple view model for configuring theme, font and accent colors.
 	/// </summary>
-	public class AppearanceViewModel
-		: NotifyPropertyChanged
+	public class AppearanceViewModel : ViewModelBase
 	{
 		private const string FontSmall = "small";
 		private const string FontLarge = "large";
@@ -109,7 +109,7 @@ namespace CS_Demo_Manager.Pages.Settings
 				if (selectedTheme != value)
 				{
 					selectedTheme = value;
-					OnPropertyChanged("SelectedTheme");
+					RaisePropertyChanged("SelectedTheme");
 
 					// and update the actual theme
 					AppearanceManager.Current.ThemeSource = value.Source;
@@ -125,7 +125,7 @@ namespace CS_Demo_Manager.Pages.Settings
 				if (selectedFontSize != value)
 				{
 					selectedFontSize = value;
-					OnPropertyChanged("SelectedFontSize");
+					RaisePropertyChanged("SelectedFontSize");
 
 					AppearanceManager.Current.FontSize = value == FontLarge ? FontSize.Large : FontSize.Small;
 				}
@@ -140,7 +140,7 @@ namespace CS_Demo_Manager.Pages.Settings
 				if (selectedAccentColor != value)
 				{
 					selectedAccentColor = value;
-					OnPropertyChanged("SelectedAccentColor");
+					RaisePropertyChanged("SelectedAccentColor");
 
 					AppearanceManager.Current.AccentColor = value;
 				}

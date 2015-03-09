@@ -1,0 +1,21 @@
+﻿<UserControl x:Class="CS_Demo_Manager.Views.Home"
+			 xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+			 xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+			 xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+			 xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+			 mc:Ignorable="d"
+			 Background="White"
+			 d:DesignWidth="800" d:DesignHeight="600" DataContext="{Binding Home, Mode=OneWay, Source={StaticResource Locator}}">
+	<Grid Style="{StaticResource ContentRoot}" Margin="16,10,16,16">
+		<DataGrid HorizontalAlignment="Stretch" VerticalAlignment="Stretch" ItemsSource="{Binding Demos}" CanUserAddRows="False" AutoGenerateColumns="False">
+			<DataGrid.Columns>
+				<DataGridTextColumn Header="Name" Binding="{Binding Name}" />
+				<DataGridTextColumn Header="Map" Binding="{Binding MapName}" />
+				<DataGridTextColumn Header="Duration(sec)" Binding="{Binding PlaybackTime}" />
+				<DataGridTextColumn Header="Server" Binding="{Binding ServerName}" />
+				<DataGridTextColumn Header="Date" Binding="{Binding CreationDate}" />
+			</DataGrid.Columns>
+		</DataGrid>
+
+	</Grid>
+</UserControl>

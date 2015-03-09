@@ -1,6 +1,7 @@
 ﻿using System.Windows.Controls;
+using System.Windows.Media;
 
-namespace CS_Demo_Manager.Pages.Settings
+namespace CS_Demo_Manager.Views.Settings
 {
 	/// <summary>
 	/// Interaction logic for Appearance.xaml
@@ -11,8 +12,10 @@ namespace CS_Demo_Manager.Pages.Settings
 		{
 			InitializeComponent();
 
-			// create and assign the appearance view model
-			DataContext = new AppearanceViewModel();
+			if (!System.ComponentModel.DesignerProperties.GetIsInDesignMode(this))
+			{
+				Background = Brushes.Transparent;
+			}
 		}
 	}
 }
